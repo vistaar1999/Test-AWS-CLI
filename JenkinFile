@@ -4,7 +4,7 @@ pipeline {
     stage("AWS CLI Commands") {
        steps {
           withCredentials([[
-              $class:'AmazonServicesCredentialsBinding',
+              $class:'AmazonWebServicesCredentialsBinding',
               credentialsId : 'AWS Credentials',
               accessKeyVariable: 'AWS_ACCESS_KEY_ID',
               secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
