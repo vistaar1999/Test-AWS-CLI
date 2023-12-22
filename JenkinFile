@@ -1,1 +1,17 @@
-
+pipeline {
+  agent any
+  stages {
+    stage("AWS CLI Commands") {
+       steps {
+          withCredentials([[
+              $class:'AmazonServicesCredentialsBinding',
+              credentialsId : 'AWS Credentials'
+              accessKeyVariable: 'AWS_ACCESS_KEY_ID'
+              secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+          ]]) {
+              sh "aws ec2 describe-instances --region=eu-north-1"
+          }
+       }   
+    }
+  }
+}
