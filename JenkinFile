@@ -9,7 +9,7 @@ pipeline {
               accessKeyVariable: 'AWS_ACCESS_KEY_ID',
               secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
           ]]) {
-              bat "aws ec2 describe-instances --region=eu-north-1 --query=Reservations[*].Instances[*].{Instance:InstanceId} --output=json"
+              bat "aws ec2 describe-instances --region=eu-north-1 --query=Reservations[*].Instances[*].{Instance:InstanceId} --output=table"
           }
        }   
     }
