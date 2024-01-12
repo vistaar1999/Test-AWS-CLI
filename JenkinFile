@@ -12,6 +12,6 @@ pipeline {
               bat "aws ec2 describe-instances --region=eu-north-1 --query 'Reservations[*].Instances[*].{Instance:InstanceId} --output json"
           }
        }   
-    }0
+    }
   }
 }
